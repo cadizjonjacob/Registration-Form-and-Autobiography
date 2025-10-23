@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Student Registration</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fffbe6; /* light yellow background */
+    color: #003366; /* dark blue text */
+  }
+  header {
+    background-color: #ffcc00; /* bright yellow */
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+  }
+  nav {
+    background-color: #003366; /* dark blue */
+    display: flex;
+    justify-content: center;
+  }
+  nav a {
+    color: #ffeb3b; /* lighter yellow */
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  nav a:hover, nav a.active {
+    background-color: #ffd633;
+    color: #003366;
+  }
+  main {
+    max-width: 900px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+  }
+  section {
+    display: none;
+    background: white;
+    border: 1px solid #ffd633;
+    padding: 20px 30px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgb(255 214 51 / 0.2);
+  }
+  section.active {
+    display: block;
+  }
+  h2 {
+    color: #003366;
+    border-bottom: 3px solid #ffcc00;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=date],
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid #003366;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #003366;
+  }
+  textarea {
+    resize: vertical;
+  }
+  input[type=submit] {
+    margin-top: 25px;
+    background-color: #003366;
+    color: #ffcc00;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  input[type=submit]:hover {
+    background-color: #002244;
+  }
+  .info-list {
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  .info-list li {
+    margin-bottom: 6px;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #003366;
+    padding: 15px 10px;
+    border-top: 1px solid #ffd633;
+  }
+  .error-message {
+    color: #e60000;
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>Student Registration Portal</header>
+
+<nav>
+  <a href="#" class="nav-link active" data-target="home">Home</a>
+  <a href="#" class="nav-link" data-target="information">Information</a>
+  <a href="#" class="nav-link" data-target="contact">Contact</a>
+</nav>
+
+<main>
+  <section id="home" class="active">
+    <h2>Welcome to Student Registration</h2>
+    <p>Welcome to the official student registration portal. Here you will be able to register for classes, update personal information, and access important resources.</p>
+    <ul class="info-list">
+      <li>Register for new courses</li>
+      <li>Review academic policies</li>
+      <li>Update contact and emergency information</li>
+      <li>Access your student ID and records</li>
+      <li>Get help via contact support</li>
+    </ul>
+  </section>
+
+  <section id="information">
+    <h2>Student Registration Form</h2>
+    <form id="registrationForm" novalidate>
+      <label for="fname">First Name *</label>
+      <input type="text" id="fname" name="fname" required />
+      <div class="error-message" id="error-fname"></div>
+
+      <label for="lname">Last Name *</label>
+      <input type="text" id="lname" name="lname" required />
+      <div class="error-message" id="error-lname"></div>
+
+      <label for="dob">Date of Birth *</label>
+      <input type="date" id="dob" name="dob" required max="2007-12-31" />
+      <div class="error-message" id="error-dob"></div>
+
+      <label for="gender">Gender *</label>
+      <select id="gender" name="gender" required>
+        <option value="" disabled selected>Select your gender</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <option value="nonbinary">Non-binary</option>
+        <option value="preferNot">Prefer not to say</option>
+      </select>
+      <div class="error-message" id="error-gender"></div>
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required />
+      <div class="error-message" id="error-email"></div>
+
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="phone" placeholder="+1 234 567 8900" />
+      <div class="error-message" id="error-phone"></div>
+
+      <label for="address">Residential Address *</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+      <div class="error-message" id="error-address"></div>
+
+      <label for="program">Program of Study *</label>
+      <select id="program" name="program" required>
+        <option value="" disabled selected>Select program</option>
+        <option value="bsc_computer_science">B.Sc. Computer Science</option>
+        <option value="bsc_engineering">B.Sc. Engineering</option>
+        <option value="ba_business_admin">B.A. Business Administration</option>
+        <option value="bsc_biology">B.Sc. Biology</option>
+        <option value="ba_english">B.A. English Literature</option>
+      </select>
+      <div class="error-message" id="error-program"></div>
+
+      <label for="year_level">Year Level *</label>
+      <select id="year_level" name="year_level" required>
+        <option value="" disabled selected>Select year level</option>
+        <option value="freshman">Freshman (1st year)</option>
+        <option value="sophomore">Sophomore (2nd year)</option>
+        <option value="junior">Junior (3rd year)</option>
+        <option value="senior">Senior (4th year)</option>
+        <option value="graduate">Graduate</option>
+      </select>
+      <div class="error-message" id="error-year_level"></div>
+
+      <label for="emergency_contact">Emergency Contact Name *</label>
+      <input type="text" id="emergency_contact" name="emergency_contact" required />
+      <div class="error-message" id="error-emergency_contact"></div>
+
+      <label for="emergency_phone">Emergency Contact Phone *</label>
+      <input type="text" id="emergency_phone" name="emergency_phone" required />
+      <div class="error-message" id="error-emergency_phone"></div>
+
+      <input type="submit" value="Submit Registration" />
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Please reach out for questions or support regarding registration.</p>
+    <ul class="info-list">
+      <li><strong>Office of Student Affairs</strong></li>
+      <li>123 University Ave, Building A</li>
+      <li>Phone: +1 (555) 123-4567</li>
+      <li>Email: student.affairs@university.edu</li>
+      <li>Office Hours: Monday - Friday, 8:00 AM - 5:00 PM</li>
+    </ul>
+    <form id="contactForm" novalidate>
+      <label for="contact_name">Your Name *</label>
+      <input type="text" id="contact_name" name="contact_name" required />
+      <div class="error-message" id="error-contact_name"></div>
+
+      <label for="contact_email">Your Email *</label>
+      <input type="email" id="contact_email" name="contact_email" required />
+      <div class="error-message" id="error-contact_email"></div>
+
+      <label for="contact_message">Message *</label>
+      <textarea id="contact_message" name="contact_message" rows="4" required></textarea>
+      <div class="error-message" id="error-contact_message"></div>
+
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 University Student Registration. All rights reserved.
+</footer>
+
+<script>
+  // Navigation function for tabs
+  const links = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main section');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      let target = e.target.getAttribute('data-target');
+
+      links.forEach(l => l.classList.remove('active'));
+      e.target.classList.add('active');
+
+      sections.forEach(section => {
+        if (section.id === target) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  // Form validation helpers
+  function showError(id, message) {
+    document.getElementById(id).textContent = message;
+  }
+
+  function clearErrors(formId) {
+    const form = document.getElementById(formId);
+    form.querySelectorAll('.error-message').forEach(em => em.textContent = '');
+  }
+
+  function validEmail(email) {
+    // Simple email regex
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
+  // Registration Form Validation
+  document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    clearErrors('registrationForm');
+    let valid = true;
+
+    const fname = this.fname.value.trim();
+    const lname = this.lname.value.trim();
+    const dob = this.dob.value;
+    const gender = this.gender.value;
+    const email = this.email.value.trim();
+    const phone = this.phone.value.trim();
+    const address = this.address.value.trim();
+    const program = this.program.value;
+    const yearLevel = this.year_level.value;
+    const emergencyContact = this.emergency_contact.value.trim();
+    const emergencyPhone = this.emergency_phone.value.trim();
+
+    if (!fname) {
+      showError('error-fname', 'First name is required.');
+      valid = false;
+    }
+    if (!lname) {
+      showError('error-lname', 'Last name is required.');
+      valid = false;
+    }
+    if (!dob) {
+      showError('error-dob', 'Date of birth is required.');
+      valid = false;
+    } else {
+      const dobDate = new Date(dob);
+      const maxDob = new Date('2007-12-31');
+      if (dobDate > maxDob) {
+        showError('error-dob', 'Date of birth must be before December 31, 2007.');
+        valid = false;
+      }
+    }
+    if (!gender) {
+      showError('error-gender', 'Gender is required.');
+      valid = false;
+    }
+    if (!email) {
+      showError('error-email', 'Email address is required.');
+      valid = false;
+    } else if (!validEmail(email)) {
+      showError('error-email', 'Email address is invalid.');
+      valid = false;
+    }
+    // Phone is optional, but if given check for plausible characters
+    if (phone && !/^[0-9+().-\s]+$/.test(phone)) {
+      showError('error-phone', 'Phone number contains invalid characters.');
+      valid = false;
+    }
+    if (!address) {
+      showError('error-address', 'Residential address is required.');
+      valid = false;
+    }
+    if (!program) {
+      showError('error-program', 'Please select a program.');
+      valid = false;
+    }
+    if (!yearLevel) {
+      showError('error-year_level', 'Please select a year level.');
+      valid = false;
+    }
+    if (!emergencyContact) {
+      showError('error-emergency_contact', 'Emergency contact name is required.');
+      valid = false;
+    }
+    if (!emergencyPhone) {
+      showError('error-emergency_phone', 'Emergency contact phone is required.');
+      valid = false;
+    } else if (!/^[0-9+().-\s]+$/.test(emergencyPhone)) {
+      showError('error-emergency_phone', 'Emergency phone contains invalid characters.');
+      valid = false;
+    }
+
+    if (valid) {
+      alert("Registration form submitted successfully!");
+      this.reset();
+    }
+  });
+
+  // Contact Form Validation
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    clearErrors('contactForm');
+    let valid = true;
+
+    const name = this.contact_name.value.trim();
+    const email = this.contact_email.value.trim();
+    const message = this.contact_message.value.trim();
+
+    if (!name) {
+      showError('error-contact_name', 'Your name is required.');
+      valid = false;
+    }
+    if (!email) {
+      showError('error-contact_email', 'Your email is required.');
+      valid = false;
+    } else if (!validEmail(email)) {
+      showError('error-contact_email', 'Email address is invalid.');
+      valid = false;
+    }
+    if (!message) {
+      showError('error-contact_message', 'Message cannot be empty.');
+      valid = false;
+    }
+
+    if (valid) {
+      alert("Message sent successfully!");
+      this.reset();
+    }
+  });
+</script>
+
+</body>
+</html>
