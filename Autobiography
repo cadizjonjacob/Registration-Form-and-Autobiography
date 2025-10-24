@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Autobiography</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffb6c1, #90ee90);
+      color: #006400;
+      transition: background 0.5s ease;
+    }
+
+    header {
+      background-color: rgba(255, 182, 193, 0.85);
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #006400;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #ff1493;
+    }
+
+    section {
+      display: none;
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 15px #90ee90;
+      animation: fadeIn 0.5s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img {
+      display: block;
+      margin: 20px auto;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 4px solid #ff69b4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: #006400;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ff69b4;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #90ee90;
+      color: #006400;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌸 My Autobiography 🌸</h1>
+    <nav>
+      <a onclick="showPage('about')">About Me</a>
+      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('feedback')">Feedback</a>
+    </nav>
+  </header>
+
+  <!-- PAGE 1: ABOUT ME -->
+  <section id="about" class="active">
+    <h2>Getting to Know About Me</h2>
+    <img src="cadiz.jpg" alt="My Picture">
+    <p>
+      Hello everyone i am Jon Jacob M. Cadiz im 19 years old and just beginning my journey as a first-year college student, I’m learning more about who I am and how I fit into the world. Being part of the LGBT community has shaped not only my identity but also my outlook on life. I’ve always believed that being true to myself is the key to happiness, and part of that truth is bringing energy, fun, and a little bit of mischief to everyone around me. People often call me the “naughty one” of the group, and honestly, they’re not wrong—but it’s all in good spirit.
+    </p>
+    <p>
+      College life is a new adventure for me, filled with challenges, excitement, and opportunities to express myself. As someone who loves to make others laugh and feel comfortable, I’ve found that my personality often brightens the mood, especially during stressful times. I believe that spreading good energy helps create a more open and welcoming environment for everyone, especially in a diverse community like ours. When I’m not busy with schoolwork, I usually find comfort in two of my favorite things: reading books and playing online games. Books allow me to escape into different worlds, explore new ideas, and learn lessons that shape my perspective on life. On the other hand, online games are my way of connecting with people from all over the world and having fun without leaving my comfort zone. Interestingly, my comfort zone happens to come alive at midnight. While most people are getting ready for bed, that’s when I feel most at peace—whether I’m reading, gaming, or simply reflecting on my day.
+    </p>
+    <p>
+      Being a 19-year-old college student and a proud member of the LGBT community has taught me the importance of self-expression, confidence, and positivity. I’ve learned to embrace my playful and energetic side, knowing that it’s a big part of what makes me, me. Whether it’s through laughter, late-night gaming sessions, or the pages of a good book, I continue to grow into the person I’m meant to be—one who isn’t afraid to shine, even at midnight.
+    </p>
+  </section>
+
+  <!-- PAGE 2: CONTACT -->
+  <section id="contact">
+    <h2>💖 Connect with Me 💚</h2>
+    <ul>
+      <li>📘 Facebook: <a href="#" style="color:#ff1493;">https://www.facebook.com/jecaaaa04</a></li>
+      <li>📸 Instagram: <a href="#" style="color:#006400;">https://www.instagram.com/runnr_22/?next=%2F</a></li>
+      <li>🎮 Discord: <span style="color:#ff1493;">@runnr22</span></li>
+      <li>📧 Gmail: <span style="color:#006400;">cadiz.jonjacob@llcc.edu.ph</span></li>
+    </ul>
+    <p>
+      Thank you for visiting my autobiography website! Feel free to connect with me anytime — I’d love to meet new friends and share good vibes. 🌈
+    </p>
+  </section>
+
+  <!-- PAGE 3: FEEDBACK -->
+  <section id="feedback">
+    <h2>💬 What Can You Say About Me?</h2>
+    <form>
+      <label for="name">Your Name (optional):</label>
+      <input type="text" id="name" placeholder="Enter your name">
+      
+      <label for="message">Your Message or Recommendation:</label>
+      <textarea id="message" rows="6" placeholder="Write something nice here..."></textarea>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>💚 Designed with love and pride 💖</p>
+  </footer>
+
+  <script>
+    // JavaScript to show/hide pages
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('section');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
